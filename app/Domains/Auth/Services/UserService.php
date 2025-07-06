@@ -5,11 +5,10 @@ namespace App\Domains\Auth\Services;
 use App\Domains\Auth\Interfaces\UserRepositoryInterface;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Validation\ValidationException;
-
+use App\Domains\Auth\Mapper\UserMapper;
 class UserService
 {
     protected UserRepositoryInterface $userRepo;
-
     public function __construct(UserRepositoryInterface $userRepo)
     {
         $this->userRepo = $userRepo;
@@ -17,7 +16,8 @@ class UserService
 
     public function getAll()
     {
-        return $this->userRepo->all();
+        $users = $this->userRepo->all();
+        return UserMapper::toDtoCollection($users);
     }
 
     public function findById(int $id)

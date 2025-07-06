@@ -2,11 +2,13 @@
 
 namespace App\Domains\Auth\Models;
 
-use Illuminate\Database\Eloquent\Model;
+use Illuminate\Foundation\Auth\User as Authenticatable;
+use Illuminate\Notifications\Notifiable;
 
-class User extends Model
+class User extends Authenticatable
 {
-    //
+    use Notifiable;
+
     protected $fillable = [
         'first_name',
         'last_name',
@@ -17,4 +19,19 @@ class User extends Model
         'status',
         'phone',
     ];
+
+    protected $hidden = [
+        'hashedPassword',
+        'remember_token',
+    ];
+
+    protected $casts = [
+        'isVerified' => 'boolean',
+    ];
+
+    // 🔐 Laravel expects 'password', so override getAuthPassword
+    public function getAuthPassword()
+    {
+        return $this->hashedPassword;
+    }
 }
