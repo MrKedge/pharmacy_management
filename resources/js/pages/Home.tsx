@@ -1,6 +1,11 @@
+import { Switch } from '@/components/ui/switch';
 
-export default function Home() {
-  return (
-    <div>Home</div>
-  )
-}
+const MyPage = () => {
+    return (
+        <div>
+            <Switch />
+        </div>
+    );
+};
+
+export default MyPage;
