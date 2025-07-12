@@ -8,11 +8,11 @@ interface Props {
 
 const AdminLayout = ({ children }: Props) => {
     return (
-        <div className="flex h-screen bg-[#EDF1F5]">
+        <div className="flex min-h-screen bg-[#EDF1F5]">
             <Sidebar />
-            <div className="flex flex-1 flex-col overflow-hidden text-black">
+            <div className="flex-1 overflow-auto flex flex-col text-black">
                 <Topbar />
-                <main className="flex-1 overflow-auto p-6">{children}</main>
+                <main className="flex-1 overflow-auto">{children}</main>
             </div>
         </div>
     );
