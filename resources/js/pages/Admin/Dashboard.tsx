@@ -1,16 +1,19 @@
+import SummaryCard from '@/components/Admin/Dashboard/SummaryCard';
+import Header from '@/components/Admin/Header';
 import AdminLayout from '@/layouts/AdminLayout';
-import React from 'react'
-
+import { BiDollar, BiShieldPlus, BiSolidError } from 'react-icons/bi';
+import { MdKeyboardDoubleArrowRight } from 'react-icons/md';
+import { TbBoxOff } from "react-icons/tb";
+import { LuBriefcaseMedical } from "react-icons/lu";
+import SummarySection from '@/components/Admin/Dashboard/SummarySection';
 const Dashboard = () => {
-  return (
-    <>
+   
+    return (
         <AdminLayout>
-             <h1 className="text-2xl font-bold mb-4">Dashboard</h1>
-             <p>Welcome to the admin dashboard!</p>
+            <Header header={'Dashboard'} subHeader="A quick data overview of the inventory" />
+            <SummarySection/>
         </AdminLayout>
-    </>
-  );
-}
-
+    );
+};
 
 export default Dashboard;
