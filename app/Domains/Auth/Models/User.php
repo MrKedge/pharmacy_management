@@ -4,7 +4,7 @@ namespace App\Domains\Auth\Models;
 
 use Illuminate\Foundation\Auth\User as Authenticatable;
 use Illuminate\Notifications\Notifiable;
-
+//can be remove to and be place to share location
 class User extends Authenticatable
 {
     use Notifiable;

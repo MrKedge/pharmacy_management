@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Domains\Auth\Controllers;
+namespace App\Domains\Auth\API\Controllers;
 
 use App\Core\Controllers\Controller;
 use Illuminate\Http\Request;
@@ -60,10 +60,11 @@ class UserController extends Controller
         $user = $this->userService->update($id, $validated);
         return response()->json($user);
     }
-
+    
     public function destroy($id)
     {
         $this->userService->delete($id);
         return response()->json(['message' => 'User deleted successfully.']);
     }
+    
 }
