@@ -15,6 +15,7 @@ const links = [
     {
         label: 'Inventory',
         icon: <FaBoxes size="1.6em" />,
+        href: '/admin/inventory',
         children: [
             { href: '/admin/inventory/medicines', label: 'List of Medicines' },
             { href: '/admin/inventory/groups', label: 'Medicine Groups' },
@@ -86,7 +87,7 @@ const Sidebar = () => {
                     {links.map((link) => {
                         if (link.children) {
                             return (
-                                <SidebarLink key={link.label} label={link.label} icon={link.icon}>
+                                <SidebarLink href={link.href} key={link.label} label={link.label} icon={link.icon}>
                                     {link.children.map((sub) => (
                                         <SidebarSubLink key={sub.href} href={sub.href} label={sub.label} isActive={url.startsWith(sub.href)} />
                                     ))}
