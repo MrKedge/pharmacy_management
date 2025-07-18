@@ -1,18 +1,12 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
+use App\Domains\Pharmacy\Controllers\Web\AdminController;
 use Inertia\Inertia;
 
 
-route::prefix('admin')->group(function () {
-   route::get('/dashboard', function () {
-        return Inertia::render('Admin/Dashboard');
-   })->name('admin.dashboard');
+Route::prefix('admin')->name('admin.')->controller(AdminController::class)->group(function () {
+    Route::get('/dashboard', 'ShowDashboard')->name('dashboard');
+    Route::get('/inventory', 'ShowInventory')->name('inventory');
+    Route::get('/inventory/medicines', 'ShowMedicines')->name('inventory.medicines');
 });
-
-route::prefix('admin')->group(function () {
-   route::get('/inventory', function () {
-        return Inertia::render('Admin/Inventory');
-   })->name('admin.inventory');
-});
-

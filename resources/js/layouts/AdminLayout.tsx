@@ -12,7 +12,7 @@ const AdminLayout = ({ children }: Props) => {
             <Sidebar />
             <div className="flex-1 overflow-auto flex flex-col text-black">
                 <Topbar />
-                <main className="flex-1 overflow-auto">{children}</main>
+                <main className="flex-1 overflow-auto p-2">{children}</main>
             </div>
         </div>
     );
