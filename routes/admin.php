@@ -6,7 +6,7 @@ use Inertia\Inertia;
 
 
 Route::prefix('admin')->name('admin.')->controller(AdminController::class)->group(function () {
-    Route::get('/dashboard', 'ShowDashboard')->name('dashboard');
-    Route::get('/inventory', 'ShowInventory')->name('inventory');
-    Route::get('/inventory/medicines', 'ShowMedicines')->name('inventory.medicines');
+    Route::get('/dashboard', 'ShowDashboardPage')->name('dashboard');
+    Route::get('/inventory', 'ShowInventoryPage')->name('inventory');
+    Route::get('/inventory/medicines', 'ShowMedicinesPage')->name('inventory.medicines');
 });

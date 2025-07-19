@@ -9,7 +9,8 @@
 
 @theme {
     --font-sans: 'Poppins', ui-sans-serif, system-ui, sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol', 'Noto Color Emoji';
-    
+    --color-primary-btn-red: #F0483E;
+  --color-primary-btn-red-hover: #D53B30;
 }
 
 

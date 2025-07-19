@@ -7,18 +7,18 @@ use Inertia\Inertia;
 class AdminController extends Controller
 {
    
-    public function ShowDashboard()
+    public function ShowDashboardPage()
     {
         return Inertia::render('Admin/Dashboard');
     }
 
-    public function ShowInventory()
+    public function ShowInventoryPage()
     {
-        return Inertia::render('Admin/Inventory');
+        return Inertia::render('Admin/Inventory/Overview');
     }
 
-    public function ShowMedicines()
+    public function ShowMedicinesPage()
     {
-        return Inertia::render('Admin/Medicines');
+        return Inertia::render('Admin/Inventory/Medicines/Index');
     }
 }
