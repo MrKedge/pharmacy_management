@@ -5,7 +5,7 @@ use App\Domains\Pharmacy\Controllers\Web\DashboardController;
 use App\Domains\Pharmacy\Controllers\Web\InventoryController;
 use App\Domains\Pharmacy\Controllers\Web\MedicineController;
 
-Route::prefix('admin')->name('admin.')
+Route::prefix('admin')->name('admin')
     ->group(function () {
     Route::get('/dashboard', [DashboardController::class, 'index'])->name('dashboard');
     Route::get('/inventory', [InventoryController::class, 'index'])->name('inventory');
