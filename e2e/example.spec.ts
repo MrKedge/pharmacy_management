@@ -8,7 +8,7 @@ test('has title', async ({ page }) => {
 });
 
 test("Check sidebar on admin dashboard", async ({ page }) => {
-  await page.goto('http://localhost:8000/admin/dashboard/');
+  await page.goto('https://uat-pharmacy.nfshost.com/admin/dashboard/');
   // Expect an element with the id 'admin-name' to contain the text 'Admin'.
   const adminName = await page.getByRole('heading', { name: 'John Doe' });
   await expect(adminName).toBeVisible();
