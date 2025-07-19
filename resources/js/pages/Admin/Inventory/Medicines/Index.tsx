@@ -1,7 +1,6 @@
 import Header from '@/components/Admin/Header';
 import { columns } from '@/components/DataTable/Columns';
 import { DataTable } from '@/components/DataTable/Data-Table';
-import AdminLayout from '@/layouts/AdminLayout';
 
 type Medicine = {
     medicineName: string;
@@ -100,7 +99,7 @@ export const medicines: Medicine[] = [
 
 const Index = () => {
     return (
-        <AdminLayout>
+        <>
             <Header
                 header={'Medicine List'}
                 subHeader="Manage your medicines effectively"
@@ -110,7 +109,7 @@ const Index = () => {
             <div className="flex flex-1 flex-col overflow-auto px-6">
                 <DataTable columns={columns} data={medicines} />
             </div>
-        </AdminLayout>
+        </>
     );
 };
 
