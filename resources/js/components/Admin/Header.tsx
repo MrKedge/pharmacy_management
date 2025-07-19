@@ -19,7 +19,7 @@ const Header = ({ header, subHeader, actionLabel, onActionClick, actionIcon = <M
     );
 
     return hasAction ? (
-        <div className="mb-4 flex flex-wrap items-center justify-between gap-4 px-6 py-4">
+        <div className="mb-4 flex flex-wrap items-center justify-between gap-4 px-6 py-2">
             {headerBlock}
             <Button variant="default" className="h-11 px-4" onClick={onActionClick}>
                 {actionIcon && <span>{actionIcon}</span>}
@@ -27,7 +27,7 @@ const Header = ({ header, subHeader, actionLabel, onActionClick, actionIcon = <M
             </Button>
         </div>
     ) : (
-        <div className="mb-4 flex flex-col items-start px-6 py-4">{headerBlock}</div>
+        <div className="mb-4 flex flex-col items-start px-6 py-2">{headerBlock}</div>
     );
 };
 

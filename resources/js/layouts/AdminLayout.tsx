@@ -10,9 +10,9 @@ const AdminLayout = ({ children }: Props) => {
     return (
         <div className="flex min-h-screen bg-[#EDF1F5]">
             <Sidebar />
-            <div className="flex-1 overflow-auto flex flex-col text-black">
+            <div className="flex flex-1 flex-col overflow-auto text-black">
                 <Topbar />
-                <main className="flex-1 overflow-auto p-2">{children}</main>
+                <main className="overflow-none flex-1 p-2">{children}</main>
             </div>
         </div>
     );

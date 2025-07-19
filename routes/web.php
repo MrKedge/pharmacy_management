@@ -4,8 +4,6 @@ use Illuminate\Support\Facades\Route;
 use Inertia\Inertia;
 use App\Domains\Auth\Middlewares\CheckSomething;
 
-
-
 require __DIR__.'/admin.php';
 require __DIR__.'/client.php';
 
