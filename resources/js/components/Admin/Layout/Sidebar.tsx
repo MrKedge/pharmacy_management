@@ -65,7 +65,7 @@ const Sidebar = () => {
     const { url } = usePage();
 
     return (
-        <div className="flex h-screen w-64 flex-col bg-[#283342] text-white">
+        <div className="flex h-screen w-64 flex-col overflow-hidden bg-[#283342] text-white">
             {/* Brand/Header */}
             <div className="flex h-16 items-center justify-center border-b border-white/10 bg-[#1D242E] font-bold">Pharmacy Management</div>
 

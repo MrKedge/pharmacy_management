@@ -1,3 +1,4 @@
+import React from 'react';
 import { Breadcrumb, BreadcrumbItem, BreadcrumbLink, BreadcrumbList, BreadcrumbPage, BreadcrumbSeparator } from '../ui/breadcrumb';
 
 interface Crumb {
@@ -16,16 +17,16 @@ const BreadcrumbSection = ({ items }: Props) => {
         <Breadcrumb className="text-[#1d242e53]">
             <BreadcrumbList>
                 {items.map((item, index) => (
-                    <BreadcrumbItem key={index} className="text-2xl font-bold">
-                        {index === lastIndex ? (
-                            <BreadcrumbPage className="font-bold text-[#1d242ed4]">{item.label}</BreadcrumbPage>
-                        ) : (
-                            <>
+                    <React.Fragment key={index}>
+                        <BreadcrumbItem className="text-2xl font-bold">
+                            {index === lastIndex ? (
+                                <BreadcrumbPage className="font-bold text-[#1d242ed4]">{item.label}</BreadcrumbPage>
+                            ) : (
                                 <BreadcrumbLink href={item.href}>{item.label}</BreadcrumbLink>
-                                <BreadcrumbSeparator className="text-[#1D242E]" />
-                            </>
-                        )}
-                    </BreadcrumbItem>
+                            )}
+                        </BreadcrumbItem>
+                        {index !== lastIndex && <BreadcrumbSeparator className="text-[#1D242E]" />}
+                    </React.Fragment>
                 ))}
             </BreadcrumbList>
         </Breadcrumb>

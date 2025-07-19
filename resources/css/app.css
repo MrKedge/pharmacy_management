@@ -11,6 +11,12 @@
     --font-sans: 'Poppins', ui-sans-serif, system-ui, sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol', 'Noto Color Emoji';
     --color-primary-btn-red: #F0483E;
     --color-primary-btn-red-hover: #D53B30;
+
+    --color-fill-bg: #E3EBF3;
+    --color-primary-input: #1D242E;
+    --color-primary-border: #1D242E66;
+
+     --color-blue-focus: #3B82F6;
 }
 
 

@@ -22,16 +22,13 @@ const Header = ({ breadcrumbs = [], header, subHeader, actionLabel, onActionClic
     const showBreadcrumbs = breadcrumbs.length > 0;
 
     return (
-        <div className="space-y-2 px-6 py-4">
+        <div className="space-y-2 bg-white px-6 py-4">
             {showBreadcrumbs && <BreadcrumbSection items={breadcrumbs} />}
 
             {(header || subHeader || hasAction) && (
                 <div className={`flex ${hasAction ? 'flex-wrap items-center justify-between' : 'flex-col items-start'} gap-4`}>
                     <div>
-                        {/* Only show H1 when no breadcrumbs */}
                         {!showBreadcrumbs && header && <h1 className="text-2xl font-bold text-gray-800">{header}</h1>}
-
-                        {/* subHeader is always paragraph */}
                         {subHeader && <p className="text-gray-600">{subHeader}</p>}
                     </div>
 

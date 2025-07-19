@@ -12,20 +12,22 @@ return new class extends Migration
             $table->id();
             $table->string('name');
             $table->text('description')->nullable();
+            $table->timestamps();
         });
 
         Schema::create('products', function (Blueprint $table) {
             $table->id();
             $table->string('name');
             $table->string('brand')->nullable();
-            $table->unsignedBigInteger('category_id')->nullable();
-            $table->decimal('price', 10, 2);
+            $table->unsignedBigInteger('category_id')->nullable();//add group here
+            $table->decimal('price', 10, 2)->default(0);
             $table->decimal('cost', 10, 2)->nullable();
             $table->integer('stock')->default(0);
             $table->integer('reorder_level')->default(10);
             $table->date('expiry_date')->nullable();
-            $table->string('barcode')->nullable();
             $table->text('description')->nullable();
+            $table->text('how_to_use')->nullable();
+            $table->text('side_effects')->nullable();
             $table->timestamps();
         });
 
@@ -33,7 +35,7 @@ return new class extends Migration
             $table->id();
             $table->unsignedBigInteger('product_id');
             $table->unsignedBigInteger('user_id');
-            $table->enum('type', ['IN', 'OUT', 'ADJUST']);
+            $table->string('type')->nullable(); // IN, OUT, ADJUST
             $table->integer('quantity');
             $table->text('reason')->nullable();
             $table->timestamp('created_at')->useCurrent();
@@ -43,8 +45,8 @@ return new class extends Migration
             $table->id();
             $table->unsignedBigInteger('user_id');
             $table->string('customer_name')->nullable();
-            $table->decimal('total_amount', 10, 2);
-            $table->enum('payment_method', ['CASH', 'GCASH', 'CARD']);
+            $table->decimal('total_amount', 10, 2)->default(0);
+            $table->string('payment_method')->nullable(); // e.g., CASH, GCASH, CARD
             $table->timestamp('paid_at')->nullable();
             $table->timestamps();
         });
@@ -54,8 +56,8 @@ return new class extends Migration
             $table->unsignedBigInteger('sale_id');
             $table->unsignedBigInteger('product_id');
             $table->integer('quantity');
-            $table->decimal('unit_price', 10, 2);
-            $table->decimal('total_price', 10, 2);
+            $table->decimal('unit_price', 10, 2)->default(0);
+            $table->decimal('total_price', 10, 2)->default(0);
         });
 
         Schema::create('lab_requests', function (Blueprint $table) {
@@ -63,7 +65,7 @@ return new class extends Migration
             $table->unsignedBigInteger('requested_by');
             $table->string('patient_name');
             $table->string('patient_id_number')->nullable();
-            $table->enum('status', ['pending', 'processing', 'completed', 'cancelled'])->default('pending');
+            $table->string('status')->default('pending'); // plain string instead of enum
             $table->text('remarks')->nullable();
             $table->timestamps();
         });
@@ -76,6 +78,7 @@ return new class extends Migration
             $table->string('result_file')->nullable();
             $table->unsignedBigInteger('reviewed_by')->nullable();
             $table->timestamp('reviewed_at')->nullable();
+            $table->timestamps();
         });
 
         Schema::create('notifications', function (Blueprint $table) {

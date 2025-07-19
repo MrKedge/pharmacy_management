@@ -17,7 +17,7 @@ class UserService
     public function getAll()
     {
         $users = $this->userRepo->all();
-        return UserMapper::toDtoCollection($users);
+        return  $this->userRepo->all();
     }
 
     public function findById(int $id)

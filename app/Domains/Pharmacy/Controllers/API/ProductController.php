@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Domains\Pharmacy\Controllers;
+namespace App\Domains\Pharmacy\Controllers\API;
 
 use App\Domains\Pharmacy\Services\ProductService;
 use Illuminate\Http\Request;
@@ -32,21 +32,23 @@ class ProductController extends Controller
 
     public function store(Request $request)
     {
-        $validatedData = $request->validate([
+         $validated = $request->validate([
             'name' => 'required|string|max:255',
             'brand' => 'nullable|string|max:255',
             'category_id' => 'nullable|exists:categories,id',
             'price' => 'required|numeric|min:0',
             'cost' => 'nullable|numeric|min:0',
-            'stock' => 'required|integer|min:0',
+            'stock' => 'integer|min:0',
             'reorder_level' => 'nullable|integer|min:0',
             'expiry_date' => 'nullable|date',
-            'barcode' => 'nullable|string|max:255',
             'description' => 'nullable|string',
+            'how_to_use' => 'nullable|string',
+            'side_effects' => 'nullable|string',
         ]);
-
-        $product = $this->productService->createProduct($validatedData);
-        return response()->json($product, 201);       
+       
+          $product = $this->productService->createProduct($validated);
+          
+          return response()->json(['message' => 'Product Created'], 200);  
     }
 
     public function update(Request $request, $id)
